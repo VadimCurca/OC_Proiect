@@ -1,26 +1,20 @@
-; 	initial values
-; 	R1 fib 1
-; 	R2 fib 2
-; 	R3 n
+; R1 = a
+; R2 = b
+; R3 = r
+; R4 = i
 
-;	R4 iterator
-;	R3 aux (R1+R2)
-;	R6 n - i
+; !!! BZ = MOD !!!
 
-	ADDI	R1,R1,1
-	ADDI	R2,R2,1
-	ADDI	R5,R5,8
+	ADDI R1, R1, 25
+	ADDI R2, R2, 10
 
-
-	ADDI 	R5,R5,-2
-L1:	ADDI	R4,R4,1
-	ADD 	R3,R1,R2
-	ADDI	R1,R2,0
-	ADDI	R2,R3,0
-	SUB		R6,R5,R4
-L3:	BZ      R6,L3	;go to stop
+L1:	SR  R3, R1, R2  ; !! R3 = R1 mod R2
+	ADDI R1, R2, 0
+	ADDI R2, R3, 0
+L2: BZ 	 R2, STOP   ; go to stop
 	NOP
-	BZ		R0,L1 	;continue
+L2: BZ R7, L1		; continue
 	NOP
-L2:	BZ 		R0,L3	;loop til the end
-	NOP
+
+STOP: BZ R7, STOP
+	  NOP

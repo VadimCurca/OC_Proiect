@@ -26,8 +26,8 @@
 	`define OP_OR			4'b0100
 	`define OP_XOR			4'b0101
 	`define OP_SL			4'b0110
-	`define OP_SR			4'b0111
-	`define OP_SRU			4'b1000
+	`define OP_MOD			4'b0111
+	`define OP_DIV			4'b1000
 	`define OP_ADDI			4'b1001
 	`define OP_LD			4'b1010
 	`define OP_ST			4'b1011
@@ -41,8 +41,8 @@
 	`define ALU_OR			3'b011
 	`define ALU_XOR			3'b100
 	`define ALU_SL			3'b101
-	`define ALU_SR			3'b110
-	`define ALU_SRU			3'b111
+	`define ALU_MOD			3'b110
+	`define ALU_DIV			3'b111
 	
 	/************** Branch condition code ****************/
 	`define BRANCH_Z		3'b000

@@ -154,18 +154,18 @@ module ID_stage
 						ex_alu_cmd				= `ALU_SL;	// S2
 						alu_src2_mux			= 0;		// S4
 					end
-				`OP_SR	:
+				`OP_MOD	:
 					begin
 						write_back_en			= 1;		// S3
 						write_back_result_mux	= 0;		// S1
-						ex_alu_cmd				= `ALU_SR;	// S2
+						ex_alu_cmd				= `ALU_MOD;	// S2
 						alu_src2_mux			= 0;		// S4
 					end
-				`OP_SRU	:
+				`OP_DIV	:
 					begin
 						write_back_en			= 1;		// S3
 						write_back_result_mux	= 0;		// S1
-						ex_alu_cmd				= `ALU_SRU;	// S2
+						ex_alu_cmd				= `ALU_DIV;	// S2
 						alu_src2_mux			= 0;		// S4
 					end
 				`OP_ADDI:

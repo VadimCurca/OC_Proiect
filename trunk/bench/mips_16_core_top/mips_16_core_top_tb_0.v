@@ -77,34 +77,11 @@ module mips_16_core_top_tb_0_v;
 	endtask
 	
 	
-	task test1;
-		begin
-			$readmemb("../bench/mips_16_core_top/test1.prog",uut.IF_stage_inst.imem.rom);
-			$display("rom load successfully\n");
-			$display("running test1\n");
-			sys_reset;
-			#1
-			
-			//#(CLK_PERIOD) test = 1;
-			
-			$monitor("current pc: %d ,instruction: %x", pc, uut.instruction);
-			
-			#(CLK_PERIOD*100)
-			$monitoroff;
-			display_all_regs;
-			$display("ram[10] = %d", uut.MEM_stage_inst.dmem.ram[10]);
-			//#(CLK_PERIOD*100) test = 0;
-			sys_reset;
-			
-		end
-	endtask
-	
 	task test2;
 		begin
 			$readmemb("../bench/mips_16_core_top/test2.prog",uut.IF_stage_inst.imem.rom);
 			$display("rom load successfully\n");
 			$display("running test2\n");
-			$display("multiply R3=R1*R2\n");
 			sys_reset;
 			display_all_regs;
 			#1
@@ -114,7 +91,7 @@ module mips_16_core_top_tb_0_v;
 			
 			$monitor("current pc: %d ,instruction: %x", pc, uut.instruction);
 			
-			#(CLK_PERIOD*400)
+			#(CLK_PERIOD*40)
 			$monitoroff;
 			display_all_regs;
 			
@@ -137,36 +114,11 @@ module mips_16_core_top_tb_0_v;
 	
 	
 	always @ (test) begin
-	    case(test)
-			// 1: begin
-			    // $display("running test1\n");
-				 // while(test == 1) begin
-				    // @(uut.pc)
-					// $display("current pc : %d",uut.pc);
-					// if(uut.pc == 40) begin
-						// #1
-					    // branch_taken = 1;
-						// branch_offset_imm = -30;
-						// #(CLK_PERIOD*1) 
-						// branch_taken =0;
-						// branch_offset_imm = 0;
-					// end
-				 // end
-			// end
-			
-			2: begin
 			    $display("running test2\n");
 				 while(test == 2) begin
 				    @(pc)
-					if(pc==6) begin
-						$display("current pc : %d",uut.pc);
-						display_all_regs();
-					end
-							
+					display_all_regs();
 				 end
-			end
-			
-		endcase
 	end
 endmodule
 

@@ -34,10 +34,10 @@ module alu
 				r = a ^ b;
 			`ALU_SL	:
 				r = a << b;
-			`ALU_SR	:
-				r = {{16{a[15]}},a} >> b;
-			`ALU_SRU	:
-				r = {16'b0,a} >> b;
+			`ALU_MOD	:
+				r = a % b;
+			`ALU_DIV	:
+				r = a / b;
 			default	:
 				begin
 					r = 0;
