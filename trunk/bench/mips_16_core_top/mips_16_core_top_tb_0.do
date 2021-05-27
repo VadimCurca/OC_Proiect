@@ -3,7 +3,7 @@ vlib work
 vlog  +incdir+../rtl ../rtl/*.v
 vlog  +incdir+../rtl ../bench/mips_16_core_top/mips_16_core_top_tb_0.v
 
-vsim -t 1ps -novopt -lib work mips_16_core_top_tb_0_v
+vsim -t 1ps -lib work mips_16_core_top_tb_0_v
 view wave
 #add wave *
 add wave /mips_16_core_top_tb_0_v/uut/*
